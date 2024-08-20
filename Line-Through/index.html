@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Transition Effect</title>
+  <style>
+    .text-wrapper {
+      position: relative;
+      display: inline-block;
+      font-family: Arial, sans-serif; /* Adjust font as needed */
+    }
+
+    .text-original {
+      position: relative;
+      display: inline-block;
+      color: black;
+      overflow: hidden;
+    }
+
+    .text-original::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background-color: red;
+      transform: scaleX(0);
+      transform-origin: bottom right;
+      transition: transform 0.3s linear;
+    }
+
+    .text-wrapper.strike-through .text-original::after {
+      transform: scaleX(1);
+    }
+
+    .text-new {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      color: black;
+      visibility: hidden;
+      opacity: 0;
+      white-space: nowrap;
+      transition: opacity 0.3s linear;
+    }
+
+    .text-wrapper.show-new .text-new {
+      visibility: visible;
+      opacity: 1;
+      animation: typewriter 1s steps(30) 2s forwards;
+    }
+
+    @keyframes typewriter {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
+    }
+
+    /* Add a keyframe animation to transition the text */
+    @keyframes text-transition {
+      0% {
+        opacity: 1;
+        transform: scaleX(1);
+      }
+      100% {
+        opacity: 0;
+        transform: scaleX(0);
+      }
+    }
+
+    .text-wrapper.transitioning .text-original {
+      animation: text-transition 0.3s forwards;
+    }
+  </style>
+</head>
+<body>
+  <p class="text-wrapper">
+    <span class="text-original">Original Text</span>
+    <span class="text-new">New Text</span>
+  </p>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const wrapper = document.querySelector('.text-wrapper');
+
+      // Trigger the strike-through effect
+      wrapper.classList.add('strike-through');
+
+      // After 2 seconds, replace text and show the new text
+      setTimeout(() => {
+        wrapper.classList.add('show-new');
+        wrapper.classList.add('transitioning');
+        wrapper.classList.remove('strike-through');
+      }, 2000); // 2000ms delay for the new text to appear
+    });
+  </script>
+</body>
+</html>
