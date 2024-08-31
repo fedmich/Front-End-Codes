@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegant Number Presentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .number_present {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Space between the number boxes and text */
+        }
+
+        .number-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 100px;
+            border-radius: 12px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+        }
+
+        .percentage {
+            background: #e0f7fa; /* Light blue background */
+            color: #00796b; /* Darker blue text */
+        }
+
+        .value {
+            background: #fce4ec; /* Light pink background */
+            color: #c2185b; /* Darker pink text */
+        }
+
+        .of-text, .equals-text {
+            font-size: 1.5rem;
+            color: #888; /* Gray color for "of" and "=" */
+            line-height: 100px; /* Center text vertically */
+        }
+
+        .answer {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+            background: #e8f5e9; /* Light green background for answer */
+            border-radius: 12px;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: transform 0.9s ease, opacity 0.9s ease;
+            animation: fadeInZoom 0.9s ease forwards;
+        }
+
+        @keyframes fadeInZoom {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Hover effect */
+        .number_present:hover .answer {
+            background: navy;
+            color: white;
+            transform: scale(1.1); /* Slightly enlarge on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="number_present">
+        <div class="number-box percentage">3%</div>
+        <div class="of-text">of</div>
+        <div class="number-box value">20</div>
+        <div class="equals-text">=</div>
+        <div class="answer">0.6</div>
+    </div>
+</body>
+</html>
