@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Interview Cheat Sheet</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #f0f0f0, #acbac7, #f0f0f0);
+            color: #333;
+            padding: 20px;
+            height: max-content;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+
+        .toolbox {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4a90e2;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #357ABD;
+        }
+
+        /* Cheat sheet container */
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 1080px;
+            margin: auto;
+            margin-top: 20px;
+        }
+
+        .box {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px dashed #666;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            opacity: 0;
+            /* Initially hidden for the animation */
+            max-width: 550px;
+            min-height: 200px;
+        }
+        .box_initial{
+            display: none;m
+        }
+
+        
+        .box_ani {
+            transform: translateY(70px);
+            transition: opacity 1.3s ease, transform 1.3s ease;
+        }
+
+        h3 {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style-type: circle;
+            padding-left: 20px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        /* Typewriter effect */
+        .typewriter h3 {
+            display: inline-block;
+            border-right: 2px solid rgba(0, 0, 0, 0.75);
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            animation: typing 2s steps(30, end) forwards, blink 1s step-end 4, stopBlink 0.1s 4s forwards;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink {
+
+            from,
+            to {
+                border-color: transparent;
+            }
+
+            50% {
+                border-color: black;
+            }
+        }
+
+        @keyframes stopBlink {
+            to {
+                border-right: none;
+            }
+        }
+
+        /* Animation for scrolling */
+        .box.scroll-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Media query for printing */
+        @media print {
+            html {}
+
+            body {
+                background: white;
+                margin: 20mm 30mm 10mm 20mm;
+                /* Ample margins for A4 paper */
+                padding: 0px;
+            }
+
+            .container {
+                padding-right: 20px !important;
+                background-color: blue;
+                width: 80%;
+            }
+
+            .toolbox {
+                display: none;
+                /* Hide toolbox when printing */
+            }
+
+            .box {
+                page-break-inside: avoid;
+                /* Avoid breaking boxes across pages */
+                border-radius: 10px;
+                /* Keep rounded corners */
+                border: 2px dashed #666;
+                /* Maintain dashed border */
+                margin-right: 10px;
+                background-color: red !important;
+                /* max-width: 570px; */
+                width: 380px !important;
+                gap: 20px;
+            }
+
+            .typewriter h3 {
+                width: 100%;
+                /* Show full text for typewriter effect */
+                border-right: none;
+                animation: none;
+            }
+        }
+
+        /* Add margin to adjust layout on smaller screens */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Job Interview Cheat Sheet</h1>
+
+    <!-- Toolbox with Print and More Tips buttons -->
+    <div class="toolbox">
+        <button onclick="window.print()">Print</button>
+        <button onclick="alert('More tips coming soon!')">More Tips</button>
+    </div>
+
+    <div class="container">
+        <div class="box box_initial">
+            <h3>Why do you want to work here?</h3>
+            <ul>
+                <li>Speak to their mission + why you want to support it</li>
+                <li>Outline the advantages the company has relative to competitors</li>
+                <li>Share why you are excited about the immediate role</li>
+            </ul>
+        </div>
+
+        <div class="box box_initial">
+            <h3>Tell me about a mistake you made at work</h3>
+            <ul>
+                <li>Use an example of a real mistake YOU made</li>
+                <li>Use an example where you were able to remedy the mistake - but avoid "catastrophic" mistakes</li>
+                <li>Explain how you fixed the error, what you learned, and add a story about how you avoided a similar
+                    situation later in your career</li>
+            </ul>
+        </div>
+
+        <div class="box box_initial">
+            <h3>What’re your greatest strengths?</h3>
+            <ul>
+                <li>Focus specifically on skills that match the role!</li>
+                <li>Provide tangible examples of how those strengths supported previous outcomes (KPIs) in previous
+                    roles</li>
+                <li>Provide a mixture of hard & soft skills!</li>
+            </ul>
+        </div>
+
+        <div class="box box_initial">
+            <h3>What’s your biggest weakness?</h3>
+            <ul>
+                <li>Avoid toxicity, anger, or any other “red flag” weakness</li>
+                <li>Talk about a weakness that you’ve overcome through focused effort</li>
+                <li>Explain how you identified and worked through the issue</li>
+            </ul>
+        </div>
+
+        <div class="box box_initial">
+            <h3>What’s your plan for your first 90 days here?</h3>
+            <ul>
+                <li>Get to know the team & its needs</li>
+                <li>Identify and solve a big problem the team wants solved that has no owner</li>
+                <li>Create a plan for the rest of the year that my colleagues and mgr agree with</li>
+            </ul>
+        </div>
+
+        <div class="box box_initial">
+            <h3>Tell me about a time you had a disagreement with a colleague or manager</h3>
+            <ul>
+                <li>Pick an example that ended amicably</li>
+                <li>Start with “in almost all cases at work, everyone has good intent and disagreement comes from lack
+                    of shared information”</li>
+                <li>Do not ever denigrate the other party in the story</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Scroll animation for the boxes
+        const boxes = document.querySelectorAll('.box');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('scroll-in');
+                    observer.unobserve(entry.target); // Remove observer after animation
+                }
+            });
+        }, { threshold: 0.1 });
+
+        boxes.forEach(box => observer.observe(box));
+
+        // Trigger the animation on page load
+        window.addEventListener('DOMContentLoaded', function () {
+            // Scroll animation for the boxes
+            const boxes = document.querySelectorAll('.box');
+
+            // Function to add box_ani class with delay
+            function animate_box_delayed() {
+                let delay = 600;
+
+                boxes.forEach(box => {
+                    if (!box.classList.contains('box_ani')) {
+                        setTimeout(() => {
+                            box.classList.remove('box_initial');
+                            box.classList.add('box_ani');
+                            box.classList.add('typewriter');
+
+                        }, delay);
+                        delay += 600;
+                        
+
+                    }
+                });
+            }
+
+
+            animate_box_delayed();
+        });
+    </script>
+</body>
+
+</html>
